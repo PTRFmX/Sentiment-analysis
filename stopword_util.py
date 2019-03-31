@@ -4,8 +4,8 @@ import codecs
 
 def getStopwords():
     stopword_file = "stop_words_source/chinese_stop_words.txt"
-    stopwords = {}
-    for word in codecs.open(stopword_file, 'r', encoding='utf-8').readlines():
+    stopwords = set(())
+    for word in codecs.open(stopword_file, 'r').readlines():
         stopwords.add(word.strip())
     return stopwords
 

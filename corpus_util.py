@@ -13,11 +13,8 @@ except:
 pd_positive = pd_all[pd_all.label == 1]
 pd_negative = pd_all[pd_all.label == 0]
 
-def get_balanced_corpus(expected_size, pos_corpus, neg_corpus):
+def get_balanced_corpus(expected_size, pos_corpus = pd_positive, neg_corpus = pd_negative):
     size = expected_size // 2
     balanced_pos_corpus = pos_corpus.sample(size, replace = pos_corpus.shape[0] < size)
     balanced_neg_corpus = neg_corpus.sample(size, replace = neg_corpus.shape[0] < size)
     return balanced_pos_corpus, balanced_neg_corpus
-
-pos, _ =  get_balanced_corpus(100, pd_positive, pd_negative)
-print(len(pos.review))
